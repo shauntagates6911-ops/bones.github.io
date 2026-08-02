@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>BONES Debug Tips</title>
+<style>
+body{background:#0d0d12;color:#fff;font-family:sans-serif;text-align:center;padding:40px;}
+.tip{background:#111;padding:10px;margin:6px;border-radius:6px;}
+</style></head><body>
+<h1>🩻 BONES Debug Tips</h1>
+<div id="tips"></div>
+<script>
+const tips=[
+"Blocks not dragging? → Make sure .block has position:absolute.",
+"Snap not working? → Check SNAP value and parseInt on left/top.",
+"Signup not saving? → localStorage may be blocked in incognito.",
+"OTP wrong? → Clear bones_otp_* keys and retry.",
+"AI credits stuck? → bones_ai_* needs daily reset timestamp.",
+"Profile blank? → bones_current missing, user not logged in.",
+"Friends not showing? → bones_friends_* must be valid JSON.",
+"Staff page locked? → Add your name to bones_staff array."
+];
+
+tips.forEach(t=>{
+  const d=document.createElement('div');
+  d.className='tip';
+  d.textContent=t;
+  tips.appendChild(d);
+});
+</script>
+</body></html>
