@@ -40,3 +40,10 @@ function addFriend(){
 render();
 </script>
 </body></html>
+const av = localStorage.getItem("bones_avatar_"+f);
+const img = document.createElement("img");
+img.src = av || "https://i.imgur.com/default.png";
+img.style.width="40px";
+img.style.height="40px";
+img.style.borderRadius="50%";
+d.prepend(img);
