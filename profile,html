@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>BONES Profile</title>
+<style>
+body{background:#0d0d12;color:#fff;font-family:sans-serif;text-align:center;padding:40px;}
+.box{background:#111;padding:20px;border-radius:8px;display:inline-block;}
+</style></head><body>
+<h1>🩻 BONES Profile</h1>
+<div class="box">
+  <p id="user"></p>
+  <p id="joined"></p>
+  <button onclick="logout()">Logout</button>
+</div>
+<script>
+const u = localStorage.getItem("bones_current");
+if(!u){location.href="signin.html";}
+user.textContent = "User: "+u;
+if(!localStorage.getItem("bones_join_"+u))
+  localStorage.setItem("bones_join_"+u, Date.now());
+joined.textContent = "Joined: "+new Date(
+  parseInt(localStorage.getItem("bones_join_"+u))
+).toLocaleString();
+function logout(){localStorage.removeItem("bones_current");location.href="signin.html";}
+</script>
+</body></html>
