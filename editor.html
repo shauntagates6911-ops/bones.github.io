@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BONES Editor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    background: #0d0d12;
+    color: white;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 320px;
+    background: #11141a;
+    border-right: 2px solid #7f7fff;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+
+  .sidebar h2 {
+    margin: 20px 0 10px;
+    font-size: 1rem;
+    color: #bfbfff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .block {
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    cursor: grab;
+    user-select: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  }
+
+  /* Scratch-style inspired blocks */
+  .sc { background: #4c97ff; color: #002b5c; border-left: 6px solid #2e6dd8; }
+
+  /* PenguinMod-style inspired blocks */
+  .pm { background: #00c896; color: #003326; border-left: 6px solid #009f75; }
+
+  /* BONES blocks */
+  .bones { background: #7f7fff; color: #0d0d12; border-left: 6px solid #bfbfff; }
+
+  .stage {
+    flex: 1;
+    background: #0f0f18;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stage-header {
+    padding: 1rem;
+    background: #1a1a25;
+    border-bottom: 2px solid #7f7fff;
+    font-weight: bold;
+  }
+
+  .stage-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bfbfff;
+    font-size: 1.4rem;
+    opacity: 0.8;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h2>Scratch Blocks (62)</h2>
+  <div id="scratch"></div>
+
+  <h2>PenguinMod Blocks (34)</h2>
+  <div id="penguin"></div>
+
+  <h2>BONES Blocks (10)</h2>
+  <div id="bones"></div>
+</div>
+
+<div class="stage">
+  <div class="stage-header">BONES Editor 
+  </div>
+  <div class="stage-area">Drag blocks here!!!</div>
+</div>
+
+<script>
+  const scratchBlocks = Array.from({length: 62}, (_, i) => `Scratch Block ${i+1}`);
+  const pmBlocks = Array.from({length: 34}, (_, i) => `PenguinMod Block ${i+1}`);
+  const bonesBlocks = Array.from({length: 10}, (_, i) => `BONES Block ${i+1}`);
+
+  function addBlocks(list, containerId, className) {
+    const container = document.getElementById(containerId);
+    list.forEach(name => {
+      const div = document.createElement("div");
+      div.className = `block ${className}`;
+      div.textContent = name;
+      container.appendChild(div);
+    });
+  }
+
+  addBlocks(scratchBlocks, "scratch", "sc");
+  addBlocks(pmBlocks, "penguin", "pm");
+  addBlocks(bonesBlocks, "bones", "bones");
+</script>
+
+</body>
+</html>
