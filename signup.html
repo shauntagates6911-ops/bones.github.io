@@ -11,3 +11,20 @@ button{padding:10px 20px;border:0;border-radius:6px;background:#7f7fff;color:#00
 <p id="msg"></p>
 <script src="auth.js"></script>
 </body></html>
+function signup(){
+  const u = user.value.trim(), p = pass.value.trim();
+  if(!u || !p){msg.textContent="Missing fields";return;}
+  if(localStorage.getItem("bones_"+u)){msg.textContent="User exists";return;}
+
+  localStorage.setItem("bones_"+u, p);
+
+  // Create OTP
+  const otp = Math.floor(100000 + Math.random()*900000).toString();
+  localStorage.setItem("bones_otp_"+u, otp);
+
+  // Mark user as pending verification
+  localStorage.setItem("bones_pending", u);
+
+  msg.textContent="OTP sent!";
+  location.href="otp.html";
+}
