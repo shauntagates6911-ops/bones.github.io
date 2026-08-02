@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>BONES Staff Alerts</title>
+<style>
+body{background:#0d0d12;color:#fff;font-family:sans-serif;text-align:center;padding:40px;}
+input{padding:10px;margin:6px;width:240px;border-radius:6px;border:0;}
+button{padding:10px 20px;border:0;border-radius:6px;background:#7f7fff;color:#000;}
+.alert{background:#111;padding:10px;margin:6px;border-radius:6px;}
+</style></head><body>
+<h1>🩻 Staff Alerts</h1>
+<p id="user"></p>
+<input id="msg" placeholder="New alert">
+<button onclick="addAlert()">Send</button>
+<div id="list"></div>
+<script>
+const u = localStorage.getItem("bones_current");
+const staff = JSON.parse(localStorage.getItem("bones_staff")||"[]");
+if(!u || !staff.includes(u)) location.href="signin.html";
+
+user.textContent="Staff: "+u;
+
+const key="bones_alerts";
+if(!localStorage.getItem(key)) localStorage.setItem(key,"[]");
+
+function render(){
+  list.innerHTML="";
+  JSON.parse(localStorage.getItem(key)).forEach(a=>{
+    const d=document.createElement("
+localStorage.setItem("bones_staff", JSON.stringify(["Shaunte","Admin","Owner"]));
