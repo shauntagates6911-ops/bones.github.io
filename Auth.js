@@ -15,3 +15,11 @@ function signin(){
   msg.textContent="Signed in!";
   location.href="index.html"; // redirect to BONES editor/home
 }
+function signin(){
+  const u = user.value.trim(), p = pass.value.trim();
+  const saved = localStorage.getItem("bones_"+u);
+  if(!saved){msg.textContent="No such user";return;}
+  if(saved !== p){msg.textContent="Wrong password";return;}
+  localStorage.setItem("bones_current", u);
+  location.href="profile.html";
+}
