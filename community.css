@@ -37,3 +37,53 @@ body {
   text-decoration: none;
   font-weight: bold;
 }
+.featured {
+  background: #141414;
+  padding: 30px;
+  border-bottom: 2px solid #555;
+}
+
+.card {
+  background: #1b1b1f;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(127,127,255,0.2);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px rgba(127,127,255,0.4);
+}
+
+.tags {
+  margin-top: 10px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+.featured {
+  background: #141414;
+  padding: 30px;
+  border-bottom: 2px solid #555;
+}
+
+.card {
+  background: #1b1b1f;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(127,127,255,0.2);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px rgba(127,127,255,0.4);
+}
+
+.tags {
+  margin-top: 10px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
