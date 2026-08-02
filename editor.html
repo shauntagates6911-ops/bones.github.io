@@ -178,3 +178,15 @@ function stopDrag() {
   active = null;
 }
 </script>
+<div id="aiBox" style="position:absolute;top:20px;right:20px;
+background:#111;padding:20px;border-radius:10px;color:#fff;
+width:240px;">
+  <h3>🤖 AI Generator</h3>
+  <textarea id="aiPrompt" placeholder="Prompt is here, dude."
+  style="width:100%;height:60px;border-radius:6px;border:0;"></textarea>
+  <button onclick="genAI()" 
+  style="margin-top:10px;padding:8px 16px;border:0;border-radius:6px;
+  background:#7f7fff;color:#000;">Generate It! 🩻</button>
+  <p id="aiMsg"></p>
+  <p id="aiCredits"></p>
+</div>
