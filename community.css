@@ -1,0 +1,39 @@
+body {
+  background: #0d0d0f;
+  color: #e8e8e8;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  background: #111;
+  border-bottom: 2px solid #444;
+}
+
+.project-list {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.project {
+  background: #1a1a1d;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid #7f7fff;
+  border-radius: 6px;
+}
+
+.project h2 {
+  margin: 0;
+  color: #bfbfff;
+}
+
+.project a {
+  color: #9fc5ff;
+  text-decoration: none;
+  font-weight: bold;
+}
