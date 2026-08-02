@@ -118,3 +118,63 @@
 
 </body>
 </html>
+<script>
+// === BONES DRAG & SNAP ENGINE ===
+// 100% original, MIT-safe, no Scratch/PenguinMod/TurboWarp code
+
+let active = null;
+let offsetX = 0;
+let offsetY = 0;
+
+// Create a snap grid size (in pixels)
+const SNAP = 20;
+
+// Make all blocks draggable
+document.querySelectorAll('.block').forEach(block => {
+  block.style.position = 'absolute';
+  block.addEventListener('mousedown', startDrag);
+});
+
+function startDrag(e) {
+  active = e.target;
+
+  const rect = active.getBoundingClientRect();
+  offsetX = e.clientX - rect.left;
+  offsetY = e.clientY - rect.top;
+
+  active.style.zIndex = 9999;
+
+  document.addEventListener('mousemove', drag);
+  document.addEventListener('mouseup', stopDrag);
+}
+
+function drag(e) {
+  if (!active) return;
+
+  active.style.left = (e.clientX - offsetX) + 'px';
+  active.style.top = (e.clientY - offsetY) + 'px';
+}
+
+function stopDrag() {
+  if (!active) return;
+
+  // Snap to grid
+  const x = parseInt(active.style.left);
+  const y = parseInt(active.style.top);
+
+  const snapX = Math.round(x / SNAP) * SNAP;
+  const snapY = Math.round(y / SNAP) * SNAP;
+
+  active.style.left = snapX + 'px';
+  active.style.top = snapY + 'px';
+
+  // Snap animation
+  active.style.transform = 'scale(1.05)';
+  setTimeout(() => active.style.transform = 'scale(1)', 120);
+
+  document.removeEventListener('mousemove', drag);
+  document.removeEventListener('mouseup', stopDrag);
+
+  active = null;
+}
+</script>
