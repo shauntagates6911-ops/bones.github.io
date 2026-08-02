@@ -1,0 +1,42 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>BONES Friends</title>
+<style>
+body{background:#0d0d12;color:#fff;font-family:sans-serif;text-align:center;padding:40px;}
+input{padding:8px;margin:6px;width:200px;border-radius:6px;border:0;}
+button{padding:8px 16px;border:0;border-radius:6px;background:#7f7fff;color:#000;}
+.friend{background:#111;padding:10px;margin:6px;border-radius:6px;}
+</style></head><body>
+<h1>🩻 Friends List</h1>
+<p id="user"></p>
+<input id="add" placeholder="Add friend">
+<button onclick="addFriend()">Add</button>
+<div id="list"></div>
+<script>
+const u = localStorage.getItem("bones_current");
+if(!u) location.href="signin.html";
+user.textContent="Logged in as "+u;
+
+const key="bones_friends_"+u;
+if(!localStorage.getItem(key)) localStorage.setItem(key,"[]");
+
+function render(){
+  list.innerHTML="";
+  JSON.parse(localStorage.getItem(key)).forEach(f=>{
+    const d=document.createElement("div");
+    d.className="friend";
+    d.textContent=f;
+    list.appendChild(d);
+  });
+}
+function addFriend(){
+  const f=add.value.trim();
+  if(!f) return;
+  const arr=JSON.parse(localStorage.getItem(key));
+  arr.push(f);
+  localStorage.setItem(key,JSON.stringify(arr));
+  add.value="";
+  render();
+}
+render();
+</script>
+</body></html>
